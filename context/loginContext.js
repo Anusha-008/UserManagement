@@ -1,15 +1,12 @@
-import React,{ useState } from "react";
+import React,{ useState,useContext } from "react";
 import { View, Button, Text, StyleSheet,TextInput,TouchableOpacity,StatusBar } from "react-native";
-import { useDispatch } from "react-redux";
-import { userLogin, userLogout } from "../store/actions";
-
+import AppContext from '../context/AppContext';
 
 export default function LoginScreen() {
   
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-   
-   const dispatch= useDispatch() 
+    let loginData = useContext(AppContext);
 
     return (
       
@@ -40,7 +37,7 @@ export default function LoginScreen() {
       </View>
   
       <TouchableOpacity>
-        <Button style={styles.loginText} title="Log in" onPress={() => dispatch(userLogin())}/>
+        <Button style={styles.loginText} title="Log in" onPress={() => loginData.setIsLoggedIn(true)}/>
       </TouchableOpacity>
       
       <StatusBar style="auto" />

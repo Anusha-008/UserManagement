@@ -9,7 +9,7 @@ const BottomTabNavigator = () => {
   return (
     <Tab.Navigator initialRouteName="HomeStack">
       <Tab.Screen name="HomeStack" component={HomeStackNavigator} options={{headerShown: false}}/>
-      {/* <Tab.Screen name="Contact" component={ContactStackNavigator} options={{headerShown: false}}/> */}
+      <Tab.Screen name="Contact" component={ContactStackNavigator} options={{headerShown: false}}/>
     </Tab.Navigator>
   );
 };

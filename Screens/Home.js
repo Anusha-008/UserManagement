@@ -1,9 +1,13 @@
-import React,{useContext} from "react";
+import React from "react";
 import { View, Button, Text, StyleSheet } from "react-native";
-import AppContext from '../context/AppContext';
+import { useDispatch } from "react-redux";
+import { userLogin, userLogout } from "../store/actions";
+
+
 
 const Home = ({ navigation }) => {
-  let loginData = useContext(AppContext);
+ 
+ const dispatch= useDispatch(); 
   return (
     <View style={styles.center}>
       <Text>This is the home screen</Text>
@@ -13,7 +17,7 @@ const Home = ({ navigation }) => {
       />
       <Button
         title="LogOut"
-        onPress={() => loginData.setIsLoggedIn(false)} 
+        onPress={() => dispatch(userLogout())} 
       />
     </View>
   );

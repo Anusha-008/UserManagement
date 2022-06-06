@@ -1,20 +1,14 @@
-import React,{useState} from "react";
-import { NavigationContainer } from "@react-navigation/native";
-import AppContext from "./context/AppContext";
+import React from "react";
+import { store } from "./store/store";
+import {Provider} from "react-redux";
+import Main from "./Screens/Main";
 
-import DrawerNavigator from './Navigation/DrawerNavigator';
-import Login from './Screens/Login';
 
- const App = () => {
-
-  const [isloggedIn,setIsLoggedIn] = useState(false)
-
+const App = () => {
   return (
-    <AppContext.Provider value={{isloggedIn,setIsLoggedIn}}>
-      <NavigationContainer>
-      {isloggedIn? <DrawerNavigator/>:<Login />}
-      </NavigationContainer>
-    </AppContext.Provider>
+    <Provider store={store}>
+      <Main/>
+    </Provider>
   );
 }
 export default App;
